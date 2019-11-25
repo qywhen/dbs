@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisd.dbs.mapper.LiveRoomMapper">
+    <resultMap id="LiveRoomResult" type="com.wisd.dbs.bean.LiveRoom">
+        <id property="id" column="no"/>
+        <result property="name" column="name"/>
+        <result property="statusId" column="status_id"/>
+        <result property="createTime" column="create_t  ime"/>
+        <result property="schoolId" column="school_id"/>
+        <result property="equipmentId" column="equipment_id"/>
+        <result property="commissionId" column="commission_id"/>
+        <result property="schoolName" column="school_name"/>
+        <result property="equipmentName" column="equipment_name"/>
+        <result property="commissionName" column="commission_name"/>
+<!--        <result property="user" column="classroom_account"/>-->
+<!--        <result property="token" column="classroom_pwd"/>-->
+    </resultMap>
+</mapper>

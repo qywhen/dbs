@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisd.dbs.mapper.ManagerMapper">
+    <resultMap id="ManagerResult" type="com.wisd.dbs.bean.Manager">
+        <id property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="pwd" column="pwd"/>
+        <result property="mobile" column="mobile"/>
+        <result property="email" column="email"/>
+        <result property="statusId" column="status_id"/>
+        <result property="roleId" column="role_id"/>
+        <result property="typeId" column="type_id"/>
+        <result property="roleName" column="role_name"/>
+        <result property="typeName" column="type_name"/>
+    </resultMap>
+</mapper>

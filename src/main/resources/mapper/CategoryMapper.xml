@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisd.dbs.mapper.CategoryMapper">
+    <resultMap id="CategoryResult" type="com.wisd.dbs.bean.Category">
+        <id property="id" column="id"/>
+        <id property="gmtCreated" column="gmt_created"/>
+        <id property="gmtModified" column="gmt_modified"/>
+        <id property="statusId" column="status_id"/>
+        <result property="parentId" column="parent_id"/>
+        <result property="name" column="name"/>
+        <result property="remark" column="remark"/>
+        <result property="type" column="type"/>
+        <result property="sorted" column="sorted"/>
+    </resultMap>
+</mapper>

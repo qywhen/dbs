@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisd.dbs.mapper.SchoolMapper">
+    <resultMap id="SchoolResult" type="com.wisd.dbs.bean.School">
+        <id property="id" column="id"/>
+        <result property="schoolName" column="school_name"/>
+        <result property="address" column="address"/>
+        <result property="headmasterPhone" column="headmaster_phone"/>
+        <result property="headmaster" column="headmaster"/>
+        <result property="schoolNature" column="school_nature"/>
+        <result property="schoolNo" column="school_no"/>
+        <result property="schoolGrade" column="school_grade"/>
+        <result property="categoryId" column="category_id"/>
+        <result property="statusId" column="status_id"/>
+        <result property="label" column="label"/>
+        <result property="schoolAudit" column="school_audit"/>
+    </resultMap>
+
+</mapper>

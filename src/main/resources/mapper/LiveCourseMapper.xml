@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wisd.dbs.mapper.LiveCourseMapper">
+    <resultMap id="LiveCourseResult" type="com.wisd.dbs.bean.LiveCoursePlan">
+        <id property="id" column="id"/>
+        <result property="courseId" column="course_id"/>
+        <result property="name" column="course_name"/>
+        <result property="pic" column="course_logo"/>
+        <result property="courseType" column="course_type"/>
+        <result property="summary" column="course_description"/>
+        <result property="schoolId" column="school_id"/>
+        <result property="schoolName" column="school_name"/>
+        <result property="teacherId" column="teacher_id"/>
+        <result property="teacherName" column="teacher_name"/>
+        <result property="gradeId" column="grade_id"/>
+        <result property="gradeName" column="grade_name"/>
+        <result property="label" column="label"/>
+        <result property="startTime" column="start_time"/>
+        <result property="endTime" column="end_time"/>
+        <result property="statusId" column="status_id"/>
+    </resultMap>
+
+
+    <resultMap id="LCR" type="com.wisd.dbs.bean.LiveCoursePlan"
+               extends="LiveCourseResult">
+        <id property="roomId" column="roomId"/>
+    </resultMap>
+</mapper>

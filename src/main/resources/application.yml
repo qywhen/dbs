@@ -1,0 +1,65 @@
+spring:
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://103.123.213.11/wd_educate?serverTimezone=UTC&useUnicode=true &characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: true
+  jackson:
+    default-property-inclusion: non_null
+    deserialization:
+      FAIL_ON_UNKNOWN_PROPERTIES: false
+    serialization:
+      INDENT_OUTPUT: true
+      WRITE_DATES_AS_TIMESTAMPS: false
+  profiles:
+    active: shunyi
+server:
+  port: 8844
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  table:
+    auto: none
+  model:
+    pack: com.wisd.dbs.bean
+  database:
+    type: mysql
+
+live:
+  urlprefix: rtmp://
+  urlsuffix: /live/
+  earlyStartMinute: 10
+  document-url-prefix: http://103.123.213.11:8090
+  period: 10
+  wbpServerPort: 7000
+
+---
+spring:
+  profiles: shunyi
+  datasource:
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.20.16:3306/wd_educate?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+#logging:
+#  config: config/logback.groovy
+---
+spring:
+  profiles: public
+  datasource:
+    #    url: jdbc:h2:file:./dbsdb
+    #    driver-class-name: org.h2.Driver
+    driver-class-name:  com.mysql.cj.jdbc.Driver
+    url: ENC(tWKcvZzDjDSNrLN13VEulZbPmznAaMrXgB+FLn+OI0PbloSDnsWmbk0e/SEOsiLAY7gb1oq0IKURpNEmrfym/CO+1QpT2p+pDUeaZ1x0ivKu2sHNpQs6oPd5DBg3nLCxoXn2fv1ZYN9MYhKAcpl1RJJPFyHrZzUtH0iz7f6VLuuLNZBHkley3jcvQ7ROJAe0nSkydaVBVQo=)
+    username: ENC(WMaQUMv/m06myEXBhAj0Xg==)
+    password: ENC(N0uY3SKfxJPNPajsIdvS1g==)
+jasypt:
+  encryptor:
+    password: wisdom
+#logging:
+#  config: config/logback.groovy

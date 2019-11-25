@@ -1,0 +1,54 @@
+plugins {
+    id "io.freefair.lombok" version "3.8.2"
+    id 'org.springframework.boot' version '2.1.5.RELEASE'
+    id 'java'
+}
+
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.wisd'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.12'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.1'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'com.gitee.sunchenbin.mybatis.actable:mybatis-enhance-actable:1.0.5'
+    implementation 'org.apache.commons:commons-lang3:3.8.1'
+    implementation 'org.codehaus.groovy:groovy:3.0.0-beta-1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation fileTree(dir: 'lib', includes: ['*.jar']) as Object
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.0.1'
+    runtimeOnly 'mysql:mysql-connector-java'
+    runtimeOnly 'com.h2database:h2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+processResources {
+    exclude('application.yml', 'logback.groovy')
+}
+
+task loadVersion {
+    version = readVersion()
+}
+
+@Newify
+String readVersion() {
+    def versionFile = file('version.properties')
+    def prop = Properties.new()
+    versionFile.withInputStream { prop.load it }
+    def produced = (prop.release as String).toBoolean() ? '' : '-SNAPSHOT'
+    prop.major + '.' + prop.minor + '.' + prop.slight + produced
+}
+
+task pack(type: Copy) {
+    from 'src/main/resources/application.yml'
+    from 'src/main/resources/logback.groovy'
+    into "$buildDir/libs/config"
+}
+pack.dependsOn(bootJar)
